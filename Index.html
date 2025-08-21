@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NACOSS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #00ff00; /* default blue for non-white sections */
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* SECTION 1: Full white content page */
+    .white-section {
+      background-color: rgb(17, 17, 29);
+      min-height: 70vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      color: white;
+    }
+
+    .white-section h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .white-section p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      
+    }
+
+    .images img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid  rgb(17, 17, 29);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    /* SECTION 2: Blue background link box area */
+    .blue-section {
+      background-color:  rgb(17, 17, 29);
+      padding: 50px 20px;
+    }
+
+    .link-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .box {
+      flex: 0 1 calc(25% - 20px);
+      min-width: 140px;
+      height: 100px;
+      background-color:  rgb(17, 17, 29);
+      border: 4px solid;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    /* Color Borders */
+    .box:nth-child(1) { border-color: #e74c3c; color: #e74c3c; }
+    .box:nth-child(2) { border-color: #2ecc71; color: #2ecc71; }
+    .box:nth-child(3) { border-color: #3498db; color: #3498db; }
+    .box:nth-child(4) { border-color: #9b59b6; color: #9b59b6; }
+    .box:nth-child(5) { border-color: #f39c12; color: #f39c12; }
+    .box:nth-child(6) { border-color: #1abc9c; color: #1abc9c; }
+    .box:nth-child(7) { border-color: #34495e; color: #34495e; }
+    .box:nth-child(8) { border-color: #e67e22; color: #e67e22; }
+    .box:nth-child(9) { border-color: #16a085; color: #16a085; }
+    .box:nth-child(10) { border-color: #c0392b; color: #c0392b; }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .box {
+        flex: 0 1 calc(33.33% - 20px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .box {
+        flex: 0 1 calc(50% - 20px);
+      }
+
+      .white-section h1 {
+        font-size: 1.5rem;
+      }
+
+      .white-section p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .box {
+        flex: 0 1 100%;
+      }
+
+      .images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .images img {
+        width: 70vw;
+        height: 70vw;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Section 1: White content page -->
+    <div class="white-section" style="text-align: center;">
+      <h1>National Association of Computer Science Students, IBBUL Chapter</h1>
+      <h2 style="color: yellowgreen;">E-Learning Portal</h2><br><br>
+      <h5 style="color: #abbadb;">
+        This portal is designed for student of NACOS IBBUL Chapter in order to enfore learning, making it easier for the students to have easy networking around thier mates.
+      </h5>
+
+      <div class="images">
+        <img src="nacoss.jpg" alt="Image 1">
+        <img src="ibbul.jpg" alt="Image 2">
+      </div>
+    </div><hr><hr><hr>
+
+    <!-- Section 2: Blue background with link boxes -->
+    <div class="blue-section">
+      <div class="link-boxes">
+        <a href="test.html" class="box"> Handouts</a>
+        <a href="page2.html" class="box">Pass Questions</a>
+        <a href="page3.html" class="box">Assignments</a>
+        <a href="page4.html" class="box">Time Table</a>
+        <a href="page5.html" class="box">Share Codes</a>
+        <a href="page6.html" class="box">Collaboration</a>
+        <a href="page7.html" class="box">Join Classes</a>
+        <a href="page8.html" class="box">Communication Skills</a>
+        <a href="page9.html" class="box">Public Speaking</a>
+        <a href="page10.html" class="box">Courses Outline</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
