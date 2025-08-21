@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Level Selector Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Layout Grid */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "main navbar"
+        "footer footer";
+      grid-template-columns: 1fr 200px;
+      grid-template-rows: 70px 1fr 50px;
+      height: 100vh;
+    }
+
+    /* Header */
+    header {
+      grid-area: header;
+      background-color: #4a90e2;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .scrolling-text {
+      white-space: nowrap;
+      position: absolute;
+      animation: scroll-left 10s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      from { left: 100%; }
+      to { left: -100%; }
+    }
+
+    /* Navbar */
+    nav {
+      grid-area: navbar;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 10px;
+      background-color: #ddd;
+      color: black;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    nav a:hover {
+      background-color: #bbb;
+    }
+
+    /* Main Content */
+    main {
+      grid-area: main;
+      position: relative;
+      background: url(nacoss.jpg) no-repeat center center;
+      background-size: contain;
+      
+    
+    }
+
+    /* Opacity layer */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.918); /* Adjust opacity */
+      z-index: 0;
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 1;
+      color: rgb(255, 255, 255);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .main-content h1 {
+      font-size: 3em;
+    }
+
+    /* Footer */
+    footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "main"
+          "navbar"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 1fr auto 50px;
+      }
+
+      nav {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      nav a {
+        flex: 1;
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .main-content h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="scrolling-text"><h1>Undergraduate Handout's</h1></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="overlay"></div>
+      <div class="main-content">
+        <h1>Select Level →</h1>
+      </div>
+    </main>
+
+    <!-- Navbar (Right Side) -->
+    <nav>
+      <a href="handout.html">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html">Level 4</a>
+      <a href="level4.html" style="background-color:  #4a90e2; color: white;">Main Page</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 All rights reserved.
+    </footer>
+  </div>
+
+</body>
+</html>

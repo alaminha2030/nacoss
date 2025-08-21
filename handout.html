@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grid Layout with File Loader</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      display: grid;
+      min-height: 100vh;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 70px 1fr 50px;
+    }
+
+    header {
+      grid-area: header;
+      background-color: #4a90e2;
+      color: white;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .scrolling-text {
+      white-space: nowrap;
+      position: absolute;
+      animation: scroll-left 10s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      from { left: 100%; }
+      to { left: -100%; }
+    }
+
+    aside {
+      grid-area: sidebar;
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    aside a {
+      text-decoration: none;
+      padding: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      color: black;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    aside a:hover {
+      background-color: #bbb;
+    }
+
+    main {
+      grid-area: main;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px auto 1fr 50px;
+      }
+
+      aside {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        gap: 10px;
+      }
+
+      aside a {
+        flex: 1;
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="scrolling-text">Welcome to My Page - This is a Transition Text Example</div>
+  </header>
+
+  <aside>
+    <a href="test.html" class="file-link">File 1</a>
+    <a href="file2.html" class="file-link">File 2</a>
+    <a href="file3.html" class="file-link">File 3</a>
+    <a href="file4.html" class="file-link">File 4</a>
+  </aside>
+
+  <main id="main-content">
+    <h2>Welcome!</h2>
+    <p>This is the default main content. Click on any file from the left nav to load content here.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 All rights reserved.
+  </footer>
+
+  <script>
+    document.querySelectorAll('.file-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the page from navigating
+        const url = this.getAttribute('href');
+        fetch(url)
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+          })
+          .then(data => {
+            document.getElementById('main-content').innerHTML = data;
+          })
+          .catch(error => {
+            document.getElementById('main-content').innerHTML = `<p>Error loading ${url}</p>`;
+            console.error('Fetch error:', error);
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>
